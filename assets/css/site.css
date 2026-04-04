@@ -1,105 +1,149 @@
-.siteFooterBlock{
-  width:min(calc(100% - 32px),1320px);
-  margin:28px auto 0;
-  padding:28px;
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,.12);
-  background:
-    radial-gradient(circle at top right, rgba(200,162,90,.10), transparent 20%),
-    linear-gradient(135deg, rgba(255,248,238,.06), rgba(255,248,238,.04));
-  box-shadow:var(--niebli-shadow-soft);
+/* Niebli Site Styles */
+
+:root {
+  --bg: #0f1110;
+  --text: #e7ebe8;
+  --muted: #9aa39d;
+  --accent: #c7a87a;
+  --card: rgba(255,255,255,0.04);
 }
 
-.siteFooterInner{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.siteFooterBrand{
-  display:flex;
-  align-items:flex-start;
-  gap:14px;
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
 }
 
-.siteFooterMark{
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.16);
-  background:
-    linear-gradient(135deg, rgba(200,162,90,.22), rgba(141,165,106,.08)),
-    rgba(255,255,255,.03);
-  display:grid;
-  place-items:center;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.18em;
-  color:var(--niebli-text);
-  flex:0 0 auto;
+h1,h2,h3 {
+  font-family: 'Cormorant Garamond', serif;
 }
 
-.siteFooterCopy strong{
-  display:block;
-  font-size:15px;
-  font-weight:900;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--niebli-text);
+.pageShell {
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.siteFooterCopy p{
-  margin:8px 0 0;
-  max-width:62ch;
-  color:var(--niebli-muted);
-  line-height:1.8;
-  font-size:14px;
+/* HERO */
+.hero {
+  position: relative;
+  height: 90vh;
 }
 
-.siteFooterNav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+.heroMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.siteFooterNav a{
-  min-height:38px;
-  padding:0 13px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.04);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:700;
-  color:var(--niebli-text);
-  text-decoration:none;
+.heroInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  padding: 80px;
 }
 
-.siteFooterMeta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-  color:rgba(246,239,229,.62);
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.14em;
-  text-transform:uppercase;
+.heroCopy h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 20px;
 }
 
-.footerSep{
-  opacity:.45;
+.heroLead {
+  max-width: 500px;
+  color: var(--muted);
+  margin-bottom: 30px;
 }
 
-@media (max-width:760px){
-  .siteFooterBlock{
-    width:min(calc(100% - 20px),1320px);
-    padding:22px;
-  }
+.heroActions .btn {
+  margin-right: 10px;
+}
 
-  .siteFooterBrand{
-    flex-direction:column;
-  }
+.btn {
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btnPrimary {
+  background: var(--accent);
+  color: #000;
+}
+
+.btnSecondary {
+  border: 1px solid var(--muted);
+  color: var(--text);
+}
+
+/* SECTION */
+.section {
+  padding: 100px 80px;
+}
+
+.sectionHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 60px;
+}
+
+.sectionTitle {
+  font-size: 42px;
+}
+
+.sectionCopy {
+  color: var(--muted);
+}
+
+/* GRID */
+.gridTwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.storyCard img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* SERVICES */
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+.serviceCard {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 16px;
+}
+
+/* CTA */
+.ctaPanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  padding: 40px;
+  border-radius: 16px;
+}
+
+/* FOOTER FIX */
+footer {
+  padding: 60px;
+  text-align: center;
+  color: var(--muted);
 }
