@@ -37,3 +37,17 @@ External campaign links use lowercase stable `utm_source`, `utm_medium`, `utm_ca
 ## QA before each content launch
 
 Check fresh-browser decline produces no GTM load; allow produces one GA4 page_view. Verify custom content events and public IDs in Tag Assistant/GA4 DebugView, including mobile and keyboard navigation. Confirm each successful form emits once only after confirmation, outbound referrals include the right business_id, and no private fields reach Google. Check campaign source/medium in acquisition reports after processing. Ad blockers and declined consent reduce analytics coverage.
+
+## Staging and releases
+
+Develop on `staging`, automatically deployed to `https://staging.niebli-site.pages.dev`. Feature branches also receive Pages previews. `main` remains production at https://niebli.com. Cloudflare previews carry a noindex header; production analytics is disabled on pages.dev by the hostname guard. A preview is not private unless Cloudflare Access is enabled. This repository is public: never commit secrets, private family records, or unpublished material that must remain confidential.
+
+Review staging on phone and desktop, test links, keyboard navigation, media, forms, accessibility, and analytics hooks before opening a pull request from staging to main. Merge only after the owner approves the release. Cloudflare retains previous deployments for rollback.
+
+## Turnstile
+
+Managed widgets are separate for production (`niebli.com`, site key `0x4AAAAAAFQZI2xH1DMZg0xh`) and staging (`staging.niebli-site.pages.dev`, site key `0x4AAAAAAFQZJSrYZhZo9CzX`). Pre-clearance is disabled. Their private keys are stored as `TURNSTILE_SECRET_KEY` in the matching Cloudflare Pages Production and Preview secret environments, never in GitHub or client JavaScript. Secrets take effect on the next deployment.
+
+`/turnstile-test` on staging tests the client widget and `/api/turnstile-check` server validation. The diagnostic endpoint rejects requests outside the named staging branch and stable staging hostname. It saves no data and sends no messages. Production has no form yet; when one is added, embed its production widget and call the exported `verifyTurnstile` gate inside that form's actual submission handler before any email, storage, or success response. Set a matching per-form action and exact expected hostname. Do not treat the test endpoint as authorization for a later submission: tokens expire and are single-use. Handle expired, invalid, duplicate, and unavailable verification by rejecting the submission. Add rate limiting appropriate to the eventual endpoint.
+
+For local automated tests, use Cloudflare's official Turnstile test keys; do not add localhost to the production widget or use test secret keys in deployed environments. Never log tokens or secret keys.
