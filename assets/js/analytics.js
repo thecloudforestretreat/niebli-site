@@ -40,6 +40,8 @@
     gtag('consent','update',{analytics_storage:accepted?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
     if (accepted) { load(); watchers.forEach(w => w.start()); }
     document.getElementById('niebli-consent')?.remove();
+    // Reload after withdrawal so no previously loaded Google tags remain active.
+    if (!accepted && loaded) location.reload();
   }
   window.niebliAnalytics = {track, consent, openPreferences:showPreferences};
   function showPreferences() {
@@ -66,7 +68,8 @@
       addEventListener('scroll',()=>{if(!accepted || !visible())return;start();const r=el.getBoundingClientRect();const pct=Math.min(100, Math.max(0,(innerHeight-r.top)/r.height*100));[25,50,75,90].forEach(p=>{if(pct>=p&&!progress.has(p)){progress.add(p);track('story_progress',{...context(el),percent:p});}});},{passive:true});
     });
     if ('IntersectionObserver' in window) {
-      const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(accepted&&entry.isIntersecting){track('business_view',context(entry.target));observer.unobserve(entry.target);}}),{threshold:.5});
+      const seen=new WeakSet();
+      const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(accepted&&entry.isIntersecting&&!seen.has(entry.target)){seen.add(entry.target);track('business_view',context(entry.target));observer.unobserve(entry.target);}}),{threshold:.5});
       const observe=()=>document.querySelectorAll('[data-business-id]:not(a)').forEach(el=>observer.observe(el));watchers.push({start:observe});
     }
     document.addEventListener('click',event=>{const el=event.target.closest('[data-analytics-event]');if(el)track(el.dataset.analyticsEvent,context(el));});
