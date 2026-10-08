@@ -57,6 +57,8 @@
     return {story_id:root.dataset.storyId,business_id:root.dataset.businessId,content_section:root.dataset.contentSection,historical_period:root.dataset.historicalPeriod,interaction_id:el.dataset.interactionId,contact_method:el.dataset.contactMethod};
   }
   function init() {
+    // Previews collect no analytics and need no analytics consent interface.
+    if (!production) return;
     const preferences = document.createElement('button'); preferences.type='button'; preferences.textContent='Analytics preferences';
     preferences.style.cssText='position:fixed;bottom:10px;right:12px;z-index:9998;padding:6px 10px;border:1px solid #75867b;border-radius:4px;background:#11201d;color:#f4ede3;font:12px system-ui;cursor:pointer';preferences.onclick=showPreferences;document.body.append(preferences);
     document.querySelectorAll('[data-story-id]').forEach(el => {
