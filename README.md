@@ -40,7 +40,7 @@ Check fresh-browser decline produces no GTM load; allow produces one GA4 page_vi
 
 ## Staging and releases
 
-Develop on `staging`, automatically deployed to `https://staging.niebli-site.pages.dev`. Feature branches also receive Pages previews. `main` remains production at https://niebli.com. Cloudflare previews carry a noindex header; production analytics is disabled on pages.dev by the hostname guard. A preview is not private unless Cloudflare Access is enabled. This repository is public: never commit secrets, private family records, or unpublished material that must remain confidential.
+Develop on `staging`, automatically deployed to `https://staging.niebli-site.pages.dev`. Feature branches also receive Pages previews. `main` remains production at https://niebli.com. Cloudflare previews carry a noindex header; production analytics is disabled outside niebli.com and www.niebli.com by the hostname guard. The staging custom hostname staging.niebli.com is supported by the server diagnostics and explicitly returns X-Robots-Tag: noindex, nofollow, noarchive. Its Cloudflare custom-domain activation, CNAME to staging.niebli-site.pages.dev, Access protection, and staging Turnstile hostname registration must all be verified before use. A preview is not private unless Cloudflare Access is enabled. This repository is public: never commit secrets, private family records, or unpublished material that must remain confidential.
 
 Review staging on phone and desktop, test links, keyboard navigation, media, forms, accessibility, and analytics hooks before opening a pull request from staging to main. Merge only after the owner approves the release. Cloudflare retains previous deployments for rollback.
 

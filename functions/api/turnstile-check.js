@@ -16,7 +16,7 @@ export async function verifyTurnstile(token, secret, expectedHostname, expectedA
 export async function onRequestPost({request,env}) {
   const url=new URL(request.url);
   // Diagnostics are limited to the named staging branch and its stable URL.
-  if (url.hostname!=='staging.niebli-site.pages.dev') return json({error:'Not found'},404);
+  if (!['staging.niebli-site.pages.dev', 'staging.niebli.com'].includes(url.hostname)) return json({error:'Not found'},404);
   if (request.headers.get('Origin')!==url.origin) return json({error:'Forbidden'},403);
   if (Number(request.headers.get('Content-Length'))>10000) return json({error:'Request too large'},413);
   let payload;
