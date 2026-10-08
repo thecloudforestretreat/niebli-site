@@ -1,22 +1,5 @@
+@import url("/assets/css/brand.css");
 /* Niebli - header.css */
-:root{
-  --niebli-bg:#081614;
-  --niebli-surface:#0d201d;
-  --niebli-surface-2:#12302b;
-  --niebli-card:rgba(245,240,228,.08);
-  --niebli-card-strong:rgba(255,248,238,.12);
-  --niebli-text:#f6efe5;
-  --niebli-muted:rgba(246,239,229,.76);
-  --niebli-line:rgba(255,255,255,.14);
-  --niebli-gold:#c8a25a;
-  --niebli-gold-soft:rgba(200,162,90,.14);
-  --niebli-moss:#8da56a;
-  --niebli-deep:#06110f;
-  --niebli-shadow:0 18px 50px rgba(0,0,0,.28);
-  --niebli-font-body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --niebli-font-head:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-}
-
 .siteHeader{
   position:sticky;
   top:12px;
@@ -30,7 +13,7 @@
   padding:14px 18px;
   border:1px solid var(--niebli-line);
   border-radius:22px;
-  background:rgba(8,22,20,.72);
+  background:rgba(20,38,27,.72);
   backdrop-filter:blur(14px);
   box-shadow:var(--niebli-shadow);
 }
@@ -50,7 +33,7 @@
   border-radius:14px;
   border:1px solid rgba(255,255,255,.16);
   background:
-    linear-gradient(135deg, rgba(200,162,90,.22), rgba(141,165,106,.08)),
+    linear-gradient(135deg, rgba(196,207,128,.22), rgba(196,207,128,.08)),
     rgba(255,255,255,.03);
   display:grid;
   place-items:center;
@@ -131,8 +114,8 @@
   min-height:42px;
   padding:0 16px;
   border-radius:14px;
-  border:1px solid rgba(200,162,90,.34);
-  background:linear-gradient(135deg, rgba(200,162,90,.24), rgba(200,162,90,.10));
+  border:1px solid rgba(196,207,128,.34);
+  background:linear-gradient(135deg, rgba(196,207,128,.24), rgba(196,207,128,.10));
   color:var(--niebli-text);
   display:inline-flex;
   align-items:center;
@@ -165,7 +148,7 @@
   padding:14px;
   border:1px solid var(--niebli-line);
   border-radius:22px;
-  background:rgba(8,22,20,.86);
+  background:rgba(20,38,27,.86);
   backdrop-filter:blur(14px);
   box-shadow:var(--niebli-shadow);
 }
@@ -195,8 +178,8 @@
 }
 
 .mobileMenu nav a.navCta{
-  background:linear-gradient(135deg, rgba(200,162,90,.24), rgba(200,162,90,.10));
-  border-color:rgba(200,162,90,.34);
+  background:linear-gradient(135deg, rgba(196,207,128,.24), rgba(196,207,128,.10));
+  border-color:rgba(196,207,128,.34);
 }
 
 @media (max-width:1040px){

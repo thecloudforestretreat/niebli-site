@@ -51,3 +51,9 @@ Managed widgets are separate for production (`niebli.com`, site key `0x4AAAAAAFQ
 `/turnstile-test` on staging tests the client widget and `/api/turnstile-check` server validation. The diagnostic endpoint rejects requests outside the named staging branch and stable staging hostname. It saves no data and sends no messages. Production has no form yet; when one is added, embed its production widget and call the exported `verifyTurnstile` gate inside that form's actual submission handler before any email, storage, or success response. Set a matching per-form action and exact expected hostname. Do not treat the test endpoint as authorization for a later submission: tokens expire and are single-use. Handle expired, invalid, duplicate, and unavailable verification by rejecting the submission. Add rate limiting appropriate to the eventual endpoint.
 
 For local automated tests, use Cloudflare's official Turnstile test keys; do not add localhost to the production widget or use test secret keys in deployed environments. Never log tokens or secret keys.
+
+## Approved branding
+
+The approved smooth-cloud master is installed from the owner's `Niebli-Final-Brand-Kit`. Shared tokens and locally hosted Playfair Display/Montserrat are in `/assets/css/brand.css`; `site.css` and `header.css` import it. The landing page uses `landing.css` for its existing layout. Fonts retain their OFL licenses in `/assets/fonts/`.
+
+`/assets/brand/logos/` contains the approved outlined SVGs in forest, paper, copper, white and black. `/assets/brand/social/` includes symbol-only and accented NIEBLÍ circular wordmarks. Use paper or white on forest for small readable branding; copper on forest is decorative. Favicons, Apple touch icon and the web manifest use the symbol alone. `/assets/images/homepage/niebli-landscape.jpg` is the owner's actual photograph. Every public HTML page includes the shared tokens and favicon links directly, without relying on JavaScript.
