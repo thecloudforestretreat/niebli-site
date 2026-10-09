@@ -37,3 +37,7 @@ External campaign links use lowercase stable `utm_source`, `utm_medium`, `utm_ca
 ## QA before each content launch
 
 Check fresh-browser decline produces no GTM load; allow produces one GA4 page_view. Verify custom content events and public IDs in Tag Assistant/GA4 DebugView, including mobile and keyboard navigation. Confirm each successful form emits once only after confirmation, outbound referrals include the right business_id, and no private fields reach Google. Check campaign source/medium in acquisition reports after processing. Ad blockers and declined consent reduce analytics coverage.
+
+## Performance maintenance (2026-10-09)
+
+Public homepage imagery uses sized WebP copies; originals remain unchanged. Preserve matching English/Spanish pages when editing their image references. Niebli and the Retreat serve the existing brand fonts from assets/fonts with their OFL licenses. Regenerate optimized variants after replacing source photographs, preserving aspect ratio and mobile cropping. Test consent, navigation, responsive layouts and Lighthouse before deployment.
