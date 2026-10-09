@@ -27,9 +27,9 @@
 <meta name="theme-color" content="#11201d">
 <meta name="format-detection" content="telephone=no">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -80,7 +80,7 @@ a{
   content:"";
   position:absolute;
   inset:-6%;
-  background:url("/assets/images/homepage/niebli_homepage_hero_02.jpg") center center/cover no-repeat;
+  background:url("/assets/images/homepage/niebli_homepage_hero_02-optimized-1600.webp") center center/cover no-repeat;
   transform:scale(1.08) translate3d(0,0,0);
   animation:heroDrift 30s ease-in-out infinite alternate;
   will-change:transform;
@@ -296,11 +296,17 @@ a{
     filter:none;
   }
 }
+/* Keep critical text visible at first paint; retain the subtle landscape motion. */
+.hero-kicker,.hero h1,.hero-line,.coming{opacity:1;transform:none;animation:none;filter:none;}
 </style>
 <script defer src="/assets/js/analytics.js"></script>
+<link rel="preload" as="image" href="/assets/images/homepage/niebli_homepage_hero_02-optimized-1600.webp">
+<link rel="stylesheet" href="/assets/fonts/brand-fonts.css">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2">
 </head>
 <body>
-<section class="hero" aria-label="Niebli cinematic landing section">
+<main class="hero" aria-label="Niebli cinematic landing section">
   <div class="hero-topfade" aria-hidden="true"></div>
   <div class="hero-bottomfade" aria-hidden="true"></div>
 
@@ -311,6 +317,6 @@ a{
   </div>
 
   <div class="coming">Coming soon</div>
-</section>
+</main>
 </body>
 </html>

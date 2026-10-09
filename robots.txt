@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /testing/
+Disallow: /testing2/
+
+Sitemap: https://niebli.com/sitemap.xml
